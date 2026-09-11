@@ -3,14 +3,39 @@
 <body>
 
 <style>
+
+h1 {
+    color: red;
+    margin: 85px;
+    font-family: georgia;
+    font-size: 50px;
+}
+ 
+p {
+   color: yellow;
+   font-size: 80px;
+   margin: 70px;
+}
+
 body {
-    font-size: 30px; 
+    font-size: 30px;
+    background-color: #754478;
 }
 
 button {
-    font-size: 30px; 
+    font-size: 20px;
+    font-family: "Trebuchet MS";
     padding: 20px;
+    margin: 35px;
+    background-color: orange;
+    color: purple;
+    border-radius: 50px; 
 }
+
+button:hover {
+    transform: scale(1.2);
+}
+
 </style>
 
 <h1 id="title">My Very First Program</h1> 
@@ -21,9 +46,14 @@ button {
 
 <button onclick="fish()">Home</button>
 
+<button onclick="addText()">Guess</button>
+
 <script>
 
-let count = 0;
+let count = 0;    
+for (let i = 0; i < 5; i = i + 1) { 
+    count = count + 1;
+}
 
 function next() {
     if (document.getElementById("killer").textContent =="Kill Me") {
@@ -34,13 +64,29 @@ function next() {
 }
 
 function cat() {
-    count = count - 11;
-    document.getElementById("title").textContent = "I Said Don't Press!" + count;
+    let cat = [
+        "You really thought this was a good idea?",
+        "Your website is terrible.",
+        "Congratulations. You pressed a button.",
+        "Go outside.",
+        "That was disapointing.",
+        "Maybe stick to fishing.",
+    ];
+
+    let random = Math.floor(Math.random() * cat.length);
+
+    document.getElementById("title").textContent = cat[random];
 }
 
 function fish() {
     count = count + 2;
     document.getElementById("title").textContent = "My Very First Program" + count;
+}
+ 
+function addText() {
+    let newText = document.createElement("p");
+    newText.textContent = "Hello down there!";  
+    document.body.appendChild(newText);
 }
 
 </script>
