@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1 id="title">My Very First Program</h1> 
+
+<button id="killer" onclick="next()">Kill Me</button>
+
+<button onclick="cat()">Don't Press</button>
+
+<button onclick="fish()">Home</button>
+
+<script>
+
+let count = 0;
+
+function next() {
+    if (document.getElementById("killer").textContent =="Kill Me") {
+        document.getElementById("killer").textContent = "You Killed Me!";
+    } else {
+        document.getElementById("killer").textContent = "Kill Me";
+    }
+}
+
+function cat() {
+    count = count - 1;
+    document.getElementById("title").textContent = "I Said Don't Press!" + count;
+}
+
+function fish() {
+    count = count + 2;
+    document.getElementById("title").textContent = "My Very First Program" + count;
+}
+
+</script>
+
+</body>
+</html>
