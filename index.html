@@ -8,7 +8,7 @@ h1 {
     color: red;
     margin: 85px;
     font-family: georgia;
-    font-size: 60px;
+    font-size: 50px;
 }
  
 p {
@@ -48,12 +48,9 @@ button:hover {
 
 <button onclick="addText()">Guess</button>
 
-<script>
+<button id="coward" onclick="changeText()" onmouseover="runAway()">Catch Me</button>
 
-let count = 0;    
-for (let i = 0; i < 5; i = i + 1) { 
-    count = count + 1;
-}
+<script>
 
 function next() {
     if (document.getElementById("killer").textContent =="Kill Me") {
@@ -79,14 +76,25 @@ function cat() {
 }
 
 function fish() {
-    count = count + 2;
-    document.getElementById("title").textContent = "My Very First Program" + count;
+    document.getElementById("title").textContent = "My Very First Program";
 }
  
 function addText() {
     let newText = document.createElement("p");
     newText.textContent = "Hello down there!";  
     document.body.appendChild(newText);
+}
+
+function runAway() {
+    let button = document.getElementById("coward");
+
+    button.style.position = "absolute";
+    button.style.left = Math.random() * 500 + "px";
+    button.style.top = Math.random() * 500 + "px";
+}
+ 
+function changeText() {
+    document.getElementById("coward").textContent = "Good Catch";
 }
 
 </script>
