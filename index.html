@@ -28,7 +28,7 @@ button {
     padding: 20px;
     margin: 35px;
     background-color: orange;
-    color: purple;
+    color: black;
     border-radius: 50px; 
 }
 
@@ -51,6 +51,8 @@ button:hover {
 <button id="coward" onclick="changeText()" onmouseover="runAway()">Catch Me</button>
 
 <script>
+
+    let colors = [ "red", "pink", "green", "yellow"];
 
 function next() {
     if (document.getElementById("killer").textContent =="Kill Me") {
@@ -87,10 +89,11 @@ function addText() {
 
 function runAway() {
     let button = document.getElementById("coward");
-
-    button.style.position = "absolute";
+       
+    button.style.position = "absolute";  
     button.style.left = Math.random() * 500 + "px";
     button.style.top = Math.random() * 500 + "px";
+    button.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
 }
  
 function changeText() {
