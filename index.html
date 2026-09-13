@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
 <body>
-
 <style>
-
 h1 {
     color: red;
     margin: 85px;
@@ -16,12 +14,10 @@ p {
    font-size: 80px;
    margin: 70px;
 }
-
 body {
     font-size: 30px;
     background-color: #754478;
 }
-
 button {
     font-size: 20px;
     font-family: "Trebuchet MS";
@@ -31,35 +27,20 @@ button {
     color: black;
     border-radius: 50px; 
 }
-
 button:hover {
     transform: scale(1.2);
 }
-
 </style>
-
 <h1 id="title">My Very First Program</h1> 
-
 <button id="killer" onclick="next()">Kill Me</button>
-
 <button onclick="cat()">Don't Press</button>
-
 <button onclick="fish()">Home</button>
-
 <button onclick="addText()">Guess</button>
-
 <button id="coward" onclick="changeText()" onmouseover="runAway()">Catch Me</button>
-
-<p id="counter">
-
 <script>
-
     let colors = [ "red", "pink", "green", "yellow"];
-
     let count = 0
-
     let gameOver = false;
-
 function next() {
     if (document.getElementById("killer").textContent =="Kill Me") {
         document.getElementById("killer").textContent = "You Killed Me!";
@@ -67,7 +48,6 @@ function next() {
         document.getElementById("killer").textContent = "Kill Me";
     }
 }
-
 function cat() {
     let cat = [
         "You really thought this was a good idea?",
@@ -77,12 +57,9 @@ function cat() {
         "That was disapointing.",
         "Maybe stick to fishing.",
     ];
-
     let random = Math.floor(Math.random() * cat.length);
-
     document.getElementById("title").textContent = cat[random];
 }
-
 function fish() {
     document.getElementById("title").textContent = "My Very First Program";
 }
@@ -92,29 +69,32 @@ function addText() {
     newText.textContent = "Hello down there!";  
     document.body.appendChild(newText);
 }
-
 function runAway() {
   
+    let coward = [
+        "Slowpoke",
+        "Wake Up",
+        "Are You Dead?",
+        "Neener Neener",
+    ];
+    let random = Math.floor(Math.random() * coward.length);
     let button = document.getElementById("coward");
     
     if (gameOver == true) {
         return;
     }
-
+    document.getElementById("coward").textContent = coward[random];
     count = count + 1; 
-    document.getElementById("counter").textContent = count;
     if (count == 10) {
         document.getElementById("coward").textContent = "I Win"
         button.style.position = "static"
         button.style.left = ""
         button.style.top = ""
     }
-
     if (count == 10) {
         gameOver = true;
         return;
     }
-
     button.style.position = "absolute";  
     button.style.left = Math.random() * 500 + "px";
     button.style.top = Math.random() * 500 + "px";
@@ -126,11 +106,14 @@ function changeText() {
     if (gameOver == true) {
         return;
     } 
-
- document.getElementById("coward").textContent = "Good Catch";
+    
+    let button = document.getElementById("coward");
+    document.getElementById("coward").textContent = "Good Catch";
+    button.style.position = "static"
+    button.style.left = ""
+    button.style.top = ""
+    gameOver = true
 }
-
 </script>
-
 </body>
 </html>
