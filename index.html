@@ -10,7 +10,7 @@ h1 {
     font-family: georgia;
     font-size: 50px;
 }
- 
+     
 p {
    color: yellow;
    font-size: 80px;
@@ -50,9 +50,15 @@ button:hover {
 
 <button id="coward" onclick="changeText()" onmouseover="runAway()">Catch Me</button>
 
+<p id="counter">
+
 <script>
 
     let colors = [ "red", "pink", "green", "yellow"];
+
+    let count = 0
+
+    let gameOver = false;
 
 function next() {
     if (document.getElementById("killer").textContent =="Kill Me") {
@@ -88,8 +94,27 @@ function addText() {
 }
 
 function runAway() {
+  
     let button = document.getElementById("coward");
-       
+    
+    if (gameOver == true) {
+        return;
+    }
+
+    count = count + 1; 
+    document.getElementById("counter").textContent = count;
+    if (count == 10) {
+        document.getElementById("coward").textContent = "I Win"
+        button.style.position = "static"
+        button.style.left = ""
+        button.style.top = ""
+    }
+
+    if (count == 10) {
+        gameOver = true;
+        return;
+    }
+
     button.style.position = "absolute";  
     button.style.left = Math.random() * 500 + "px";
     button.style.top = Math.random() * 500 + "px";
@@ -97,7 +122,12 @@ function runAway() {
 }
  
 function changeText() {
-    document.getElementById("coward").textContent = "Good Catch";
+  
+    if (gameOver == true) {
+        return;
+    } 
+
+ document.getElementById("coward").textContent = "Good Catch";
 }
 
 </script>
